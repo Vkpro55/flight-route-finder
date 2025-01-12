@@ -3,6 +3,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/images/marker-shadow.png'; //Import images
+import 'leaflet/dist/images/marker-icon.png'; //Import images
+import 'leaflet/dist/images/marker-icon-2x.png'; //Import images
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,7 +24,7 @@ const FlightPathAnimation = ({ departureCity, arrivalCity, preference }) => {
 
             const fetchRouteData = async () => {
                 try {
-                    const response = await fetch('http://localhost:5000/api/routes/calculate/api/routes/calculate', {
+                    const response = await fetch('https://flightrouteoptimization-backend.onrender.com/api/routes/calculate', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -78,7 +81,7 @@ const FlightPathAnimation = ({ departureCity, arrivalCity, preference }) => {
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
             const flightIcon = L.icon({
-                iconUrl: '/assets/flight-icon.png',
+                iconUrl: '/flight-icon.png',
                 iconSize: [72, 72],
                 iconAnchor: [36, 36],
                 className: 'flight-icon',
