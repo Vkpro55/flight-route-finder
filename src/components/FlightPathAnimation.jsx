@@ -21,7 +21,7 @@ const FlightPathAnimation = ({ departureCity, arrivalCity, preference }) => {
 
             const fetchRouteData = async () => {
                 try {
-                    const response = await fetch('https://flightrouteoptimization-backend.onrender.com/api/routes/calculate', {
+                    const response = await fetch('http://localhost:5000/api/routes/calculate/api/routes/calculate', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
